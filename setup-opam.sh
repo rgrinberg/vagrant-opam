@@ -8,5 +8,4 @@ opam init -a -y
 cat > ~/.ocamlinit <<EOF
 #use "topfind";;
 #thread;;
-#camlp4o;;
 EOF

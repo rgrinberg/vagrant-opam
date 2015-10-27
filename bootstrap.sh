@@ -9,8 +9,11 @@ apt-get update
 apt-get install -y python-software-properties build-essential m4
 add-apt-repository ppa:avsm/ppa
 apt-get update
-apt-get install -y ocaml ocaml-native-compilers camlp4 camlp4-extra opam git libssl-dev emacs vim nginx tuareg-mode auto-complete-el aspcud
-sed -i -e 's,/usr/share/nginx/html,/home/vagrant/.opam/doc/doc,g' /etc/nginx/sites-available/default
+apt-get install -y ocaml ocaml-native-compilers camlp4 camlp4-extra opam git libssl-dev vim aspcud libgmp-dev libffi-dev
+opam update
+opam switch 4.02.3
+eval $(opam config env)
+opam pin add cohttp -k git 'https://github.com/rgrinberg/ocaml-cohttp#optionalize_uri'
 
 cat > /etc/motd.tail <<'EOF'
                ,,__
